@@ -1,0 +1,11 @@
+/node_modules
+
+/.idea
+
+!/server/build
+/server/build*
+!/server/build/.gitkeep
+
+!/public/build
+/public/build*
+!/public/build/.gitkeep
