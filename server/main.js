@@ -1,6 +1,7 @@
 import http from 'http';
 import koa from 'koa';
 import render from 'koa-ejs';
+import serve from 'koa-static';
 import path from 'path';
 
 const app = koa();
@@ -12,6 +13,8 @@ render(app, {
     cache: false,
     debug: true
 });
+
+app.use(serve(path.join(__dirname, '..', 'public')));
 
 app.use(function *(next) {
     let start = new Date();
