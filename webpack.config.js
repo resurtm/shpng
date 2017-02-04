@@ -8,7 +8,7 @@ module.exports = {
     entry: [
         'bootstrap-loader',
         path.join(__dirname, 'client', 'sass', 'main.scss'),
-        path.join(__dirname, 'client', 'main.js')
+        path.join(__dirname, 'client', 'main.jsx')
     ],
     output: {
         path: path.join(__dirname, 'public', 'build'),
