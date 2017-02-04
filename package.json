@@ -3,6 +3,9 @@
   "author": "resurtm <resurtm@gmail.com>",
   "private": true,
   "license": "MIT",
+  "dependencies": {
+    "koa": "^1.2.4"
+  },
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",
@@ -18,12 +21,11 @@
   },
   "scripts": {
     "clean": "rm -rfv ./public/build/*; rm -rfv ./server/build/*",
-    "build-server": "./node_modules/babel-cli/bin/babel.js --source-maps true --out-dir ./server/build ./server/main.js",
-    "build-client": "./node_modules/webpack/bin/webpack.js --progress --profile --colors",
     "build": "yarn run clean && yarn run build-server && yarn run build-client",
-    "watch-dev-server": "./node_modules/babel-cli/bin/babel.js --source-maps true --out-dir ./server/build ./server/main.js --watch",
-    "watch-dev-client": "./node_modules/webpack/bin/webpack.js --progress --profile --colors --watch",
-    "start-server": "node ./server/build/server/main.js",
-    "start-dev-server": "./node_modules/nodemon/bin/nodemon.js ./server/build/server/main.js"
+    "build-client": "./node_modules/webpack/bin/webpack.js --progress --profile --colors",
+    "build-server": "./node_modules/babel-cli/bin/babel.js --source-maps true --out-dir ./server/build ./server/main.js",
+    "start-dev-client": "./node_modules/webpack/bin/webpack.js --progress --profile --colors --watch",
+    "start-dev-server": "./node_modules/nodemon/bin/nodemon.js ./node_modules/babel-cli/bin/babel-node.js ./server/main.js",
+    "start-server": "node ./server/build/server/main.js"
   }
 }

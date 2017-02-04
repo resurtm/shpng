@@ -1,12 +1,9 @@
-let x = {
-    a: 1,
-    b: 2
-};
+import koa from 'koa';
 
-let y = {
-    d: 3,
-    e: 4,
-    ...x
-};
+const app = koa();
 
-console.log(y);
+app.use(function *() {
+    this.body = 'Hello World';
+});
+
+app.listen(3000);
