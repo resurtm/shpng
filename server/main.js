@@ -1,9 +1,34 @@
+import http from 'http';
 import koa from 'koa';
+import render from 'koa-ejs';
+import path from 'path';
 
 const app = koa();
 
-app.use(function *() {
-    this.body = 'Hello World';
+render(app, {
+    root: path.join(__dirname, 'views'),
+    layout: 'layout',
+    viewExt: 'ejs',
+    cache: false,
+    debug: true
 });
 
-app.listen(3000);
+app.use(function *(next) {
+    let start = new Date();
+    yield next;
+    let ms = new Date - start;
+    this.set('X-Response-Time', ms + 'ms');
+});
+
+app.use(function *(next) {
+    let start = new Date;
+    yield next;
+    let ms = new Date - start;
+    console.log('%s %s - %s', this.method, this.url, ms);
+});
+
+app.use(function *() {
+    yield this.render('index');
+});
+
+http.createServer(app.callback()).listen(3000);
