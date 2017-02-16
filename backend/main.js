@@ -1,12 +1,11 @@
+require('babel-core/register');
+require('babel-polyfill');
+
 import http from 'http';
 import koa from 'koa';
 import render from 'koa-ejs';
 import serve from 'koa-static';
 import path from 'path';
-import test from './test';
-
-console.log(test.test1);
-console.log(test.test2);
 
 const app = koa();
 
