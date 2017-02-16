@@ -20,6 +20,7 @@ class GlobalNav extends React.Component {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
+
                         <Link to="/" className="navbar-brand">SHPNG</Link>
                     </div>
 
@@ -27,6 +28,7 @@ class GlobalNav extends React.Component {
                         <ul className="nav navbar-nav">
                             <NavItem to="/" index={true}>Home</NavItem>
                             <NavItem to="/about-us">About</NavItem>
+                            <NavItem to="/contact-us">Contact</NavItem>
                         </ul>
 
                         <ul className="nav navbar-nav navbar-right">
