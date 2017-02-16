@@ -7,12 +7,11 @@ module.exports = {
     target: 'web',
     entry: [
         'bootstrap-loader',
-        path.join(__dirname, 'client', 'sass', 'main.scss'),
-        path.join(__dirname, 'client', 'main.jsx')
+        path.join(__dirname, 'frontend', 'main.jsx')
     ],
     output: {
-        path: path.join(__dirname, 'public', 'build'),
-        filename: 'bundle.js'
+        path: path.join(__dirname, 'dist', 'frontend'),
+        filename: 'main.js'
     },
     module: {
         loaders: [

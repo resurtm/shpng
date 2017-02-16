@@ -2,10 +2,10 @@
 
 /.idea
 
-!/server/build
-/server/build*
-!/server/build/.gitkeep
+/dist/backend/*
+!/dist/backend
+!/dist/backend/.gitkeep
 
-!/public/build
-/public/build*
-!/public/build/.gitkeep
+/dist/frontend/*
+!/dist/frontend
+!/dist/frontend/.gitkeep

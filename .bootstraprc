@@ -1,4 +1,8 @@
 {
     "bootstrapVersion": 3,
-    "styles": false
+    "styles": true,
+    "styleLoaders": [
+        "css-loader",
+        "sass-loader"
+    ]
 }
