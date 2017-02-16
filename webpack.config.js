@@ -6,7 +6,6 @@ module.exports = {
     name: 'shpng',
     target: 'web',
     entry: [
-        'bootstrap-loader',
         path.join(__dirname, 'frontend', 'main.jsx')
     ],
     output: {
@@ -18,22 +17,19 @@ module.exports = {
             {
                 test: /.jsx?$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['react']
-                }
+                exclude: /node_modules/
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
+                loader: ExtractTextPlugin.extract(['style-loader', 'css-loader', 'sass-loader'])
             },
             {
                 test: /\.(jpg|jpeg|png|gif|woff|woff2|eot|ttf|svg)(.*)$/,
-                loader: 'url-loader?limit=5000',
-            },
+                loader: 'url-loader?limit=5000'
+            }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('bundle.css'),
-    ],
+        new ExtractTextPlugin('main.css')
+    ]
 };

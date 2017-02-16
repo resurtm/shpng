@@ -11,27 +11,13 @@ const app = koa();
 
 render(app, {
     root: path.join(__dirname, 'views'),
-    layout: 'layout',
+    layout: false,
     viewExt: 'ejs',
     cache: false,
     debug: true
 });
 
-app.use(serve(path.join(__dirname, '..', 'public')));
-
-app.use(function *(next) {
-    let start = new Date();
-    yield next;
-    let ms = new Date - start;
-    this.set('X-Response-Time', ms + 'ms');
-});
-
-app.use(function *(next) {
-    let start = new Date;
-    yield next;
-    let ms = new Date - start;
-    console.log('%s %s - %s', this.method, this.url, ms);
-});
+app.use(serve(path.join(__dirname, '..', 'dist', 'frontend')));
 
 app.use(function *() {
     yield this.render('index');
