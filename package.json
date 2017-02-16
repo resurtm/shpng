@@ -19,6 +19,7 @@
     "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.26.1",
     "file-loader": "^0.10.0",
+    "jquery": "2",
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "react": "^15.4.2",
@@ -35,9 +36,9 @@
   "scripts": {
     "clean": "rm -rfv ./dist/frontend/*; rm -rfv ./dist/backend/*",
     "build": "yarn run clean && yarn run build-frontend && yarn run build-backend",
-    "build-frontend": "./node_modules/webpack/bin/webpack.js --progress --profile --colors --optimize-minimize true",
+    "build-frontend": "./node_modules/webpack/bin/webpack.js --colors --optimize-minimize true",
     "build-backend": "./node_modules/babel-cli/bin/babel.js --out-dir ./dist/backend ./backend",
-    "start-dev-frontend": "./node_modules/webpack/bin/webpack.js --progress --profile --colors --watch",
+    "start-dev-frontend": "./node_modules/webpack/bin/webpack.js --colors --watch",
     "start-dev-backend": "./node_modules/nodemon/bin/nodemon.js ./backend/main.js --exec ./node_modules/babel-cli/bin/babel-node.js --watch ./backend",
     "serve": "node ./dist/backend/main.js"
   }
